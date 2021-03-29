@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from './Modal';
 
 function AddNewToDo() {
-
+    const [ showModal, setShowModal] = useState(false)
     return(
         <div class="AddNewToDo">
-            User---------------Befülle er mich--------------User
+            <button>
+                + New ToDo
+            </button>
+            <Modal showModal={showModal} setShowModal={setShowModal}>
+                <div>
+                    Hello Asshole!
+                </div>
+            </Modal>
+
+            
             </div>
 
     )

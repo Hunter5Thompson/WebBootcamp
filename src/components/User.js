@@ -1,12 +1,12 @@
 import React from 'react'
-import logo2 from "../images/logo2.jpg"
+import logo from "../images/logo.png"
 
 function User(){
 
     return (
         <div className='User'>
-            <div className="logo2">
-                <img src={logo2} alt="logo2" />
+            <div className="logo">
+                <img src={logo} alt="logo" />
             </div>
             <div className='info'>
                 <p>Mariechens ToDo List</p>
