@@ -1,10 +1,11 @@
 import React from 'react';
+import RenameProjekt from './RenameProjekt';
 
 function Projekt() {
 
     return(
         <div class="Projekt">
-            User---------------Befülle er mich--------------User
+            <RenameProjekt />
             </div>
 
     )

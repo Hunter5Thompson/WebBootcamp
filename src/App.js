@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 import User from './components/User';
 import AddNewToDo from './components/AddNewToDo';
@@ -11,14 +11,14 @@ import EditToDos from './components/EditToDos';
 function App() {
   return (
     <div  className="App" >
-      <Header>
+      <Sidebar>
         <h1>Thunderdome</h1>
       <User />
       <AddNewToDo />
       <Calender />
       <Projects />
 
-      </Header>
+      </Sidebar>
       <Main>
         <ToDos />
         <EditToDos />
