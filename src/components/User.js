@@ -1,19 +1,20 @@
-import React from 'react';
-import logo from "../images/logo.jpg";
+import React from 'react'
+import logo2 from "../images/logo2.jpg"
 
-function User() {
+function User(){
 
-    return(
+    return (
         <div className='User'>
-            <div className="logo">
-                <image src={logo} alt ="logo" />
+            <div className="logo2">
+                <img src={logo2} alt="logo2" />
             </div>
-            <div class="info">
-                <p>Mariechens ToDoListe</p>
+            <div className='info'>
+                <p>Mariechens ToDo List</p>
+                // eslint-disable-next-line 
                 <a href="#">Logout!</a>
             </div>
-         </div>
+        </div>
     )
 }
 
-export default User;
+export default User
