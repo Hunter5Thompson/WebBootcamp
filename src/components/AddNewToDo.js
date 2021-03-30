@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Modal from './Modal';
-import {Bell, CalendarDay, Clock} from 'react-bootstrap-icons';
+import {Bell, CalendarDay, Clock, Palette} from 'react-bootstrap-icons';
 
 function AddNewToDo() {
     const [ showModal, setShowModal] = useState(false)
@@ -46,11 +46,23 @@ function AddNewToDo() {
                         </div>
                         time-picker
                     </div>
+                    <div className="project-time">
+                        <div className="title">
+                            <Palette />
+                            <p>Wähle ein Projekt aus</p>
+                            </div>
+                        <div className="projekte">
+                            <div className="projekt active">
+                                privat
+                            </div>
+                            <div className="projekte">
+                                arbeit
+                            </div>
+                            </div>
+                    </div>
                 </form>
             </Modal>
-
-            
-            </div>
+         </div>
 
     )
 }
