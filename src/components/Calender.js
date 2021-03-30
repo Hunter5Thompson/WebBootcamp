@@ -4,7 +4,7 @@ function Calender() {
 
     return(
         <div className="Calender">
-            User---------------Befülle er mich--------------User
+            User---Befülle er mich---User
             </div>
 
     )

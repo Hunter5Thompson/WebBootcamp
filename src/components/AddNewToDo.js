@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import Modal from './Modal';
+import {Bell, CalendarDay, Clock} from 'react-bootstrap-icons';
 
 function AddNewToDo() {
     const [ showModal, setShowModal] = useState(false)
+    const [text, setText] = useState('');
+
     return(
         <div className="AddNewToDo">
             <div className="btn">
@@ -12,12 +15,38 @@ function AddNewToDo() {
             </div>
          
             <Modal showModal={showModal} setShowModal={setShowModal}>
-                <div>
-                    Hello Asshole!
-                    <button onClick={() =>setShowModal(false)}>
-                        hide
-                    </button>
-                </div>
+                <form>
+                    <div className="text">
+                        <h3>Neues ToDo!</h3>
+                        <input 
+                            type="text"
+                            value={text}
+                            onChange={e => setText(e.target.value)}
+                            placeholder='To do...'
+                            autoFocus
+                            />
+                    </div>
+                    <div className="remind">
+                        <Bell />
+                        <p>
+                            Erinnere Mich
+                        </p>
+                    </div>
+                    <div className="pick-day">
+                        <div className="title">
+                            <CalendarDay />
+                            <p>Wähle einen Tag aus</p>
+                        </div>
+                        date-picker
+                    </div>
+                    <div className="pick-time">
+                        <div className="title">
+                            <Clock />
+                            <p>Wähle eine Uhrzeit aus</p>
+                        </div>
+                        time-picker
+                    </div>
+                </form>
             </Modal>
 
             
