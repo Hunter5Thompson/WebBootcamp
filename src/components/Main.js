@@ -3,7 +3,7 @@ import React from 'react';
 function Main({children}) {
 
     return(
-        <div class="Main">
+        <div className="Main">
             {children}
             </div>
 
