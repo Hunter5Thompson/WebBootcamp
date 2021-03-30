@@ -62,11 +62,11 @@ function AddNewToDo() {
                             <Palette />
                             <p>Wähle ein Projekt aus</p>
                             </div>
-                        <div className="projekte">
-                            <div className="projekt active">
+                        <div className="projecte">
+                            <div className="project active">
                                 privat
                             </div>
-                            <div className="projekte">
+                            <div className="projecte">
                                 arbeit
                             </div>
                             </div>

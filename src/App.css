@@ -106,7 +106,7 @@
 
 /* AddNewToDo form */
 .AddNewToDo form {
-    padding: 1rem;
+    padding: 1rem 1rem calc(1rem + 40px)1rem;
     width: 500px;
     background: white;
     border-radius: 4px;
@@ -125,12 +125,12 @@
     border-bottom: 1px solid #7e6565;
 
 }
-.AddNewTodo form .remind {
+.AddNewToDo form .remind {
     display: flex;
     align-items: center;
     padding: 0.5rem;
   }
-  .AddNewTodo form p {
+  .AddNewToDo form p {
     margin-left: 10px;
   }
   .AddNewTodo form .title {
@@ -138,28 +138,28 @@
     align-items: center;
     margin-bottom: 5px;
   }
-  .AddNewTodo form .pick-day {
+  .AddNewToDo form .pick-day {
     padding: 1.5rem 1.5rem 0 1.5rem;
   }
-  .AddNewTodo form .pick-time {
+  .AddNewToDo form .pick-time {
     padding: 1.5rem;
   }
-  .AddNewTodo form .pick-project {
+  .AddNewToDo form .pick-project {
     padding: 0.5rem;
   }
-  .AddNewTodo form .pick-project .projects {
+  .AddNewToDo form .pick-project .projects {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 1rem 0 1rem;
   }
-  .AddNewTodo form .pick-project .projects .project {
+  .AddNewToDo form .pick-project .projects .project {
     border: 1px solid #b1c6db;
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
   }
-  .AddNewTodo form .pick-project .projects .active {
+  .AddNewToDo form .pick-project .projects .active {
     background: #b1c6db;
     color: white;
   }
