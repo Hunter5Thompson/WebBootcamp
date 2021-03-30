@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 import Modal from './Modal';
-import {Bell, CalendarDay, Clock, Palette} from 'react-bootstrap-icons';
+import {Bell, CalendarDay, Clock, Palette, X} from 'react-bootstrap-icons';
+import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 function AddNewToDo() {
     const [ showModal, setShowModal] = useState(false)
     const [text, setText] = useState('');
+    const[day, setDay] = useState(new Date());
+    const[time, setTime] = useState(new Date());
 
     return(
         <div className="AddNewToDo">
@@ -15,6 +19,7 @@ function AddNewToDo() {
             </div>
          
             <Modal showModal={showModal} setShowModal={setShowModal}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <form>
                     <div className="text">
                         <h3>Neues ToDo!</h3>
@@ -37,16 +42,22 @@ function AddNewToDo() {
                             <CalendarDay />
                             <p>Wähle einen Tag aus</p>
                         </div>
-                        date-picker
+                        <DatePicker 
+                            value={day}
+                            onChange={day => setDay(day)}
+                            />
                     </div>
                     <div className="pick-time">
                         <div className="title">
                             <Clock />
                             <p>Wähle eine Uhrzeit aus</p>
                         </div>
-                        time-picker
+                        <TimePicker
+                        value={time}
+                        onChange={time => setTime(time)}
+                         />
                     </div>
-                    <div className="project-time">
+                    <div className="pick-project">
                         <div className="title">
                             <Palette />
                             <p>Wähle ein Projekt aus</p>
@@ -60,7 +71,15 @@ function AddNewToDo() {
                             </div>
                             </div>
                     </div>
+                    <div className="cancel" onClick={() => setShowModal(false)}>
+                        <X size='40'/>
+                    </div>
+                    <div className="confirm">
+                        <button>+ Hinzufügen</button>
+                    </div>
                 </form>
+                </MuiPickersUtilsProvider>
+
             </Modal>
          </div>
 

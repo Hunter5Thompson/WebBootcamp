@@ -5,7 +5,7 @@ import AddNewProject from './AddNewProject';
 function Projects() {
 
     return(
-        <div class="Projects">
+        <div className="Projects">
             <Projekt />
             <AddNewProject />
             
