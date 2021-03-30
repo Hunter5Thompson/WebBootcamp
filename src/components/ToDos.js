@@ -5,7 +5,7 @@ import ToDo from './ToDo';
 function ToDos() {
 
     return(
-        <div class="ToDos">
+        <div className="ToDos">
             <ToDo />
             <Next7Days />
             </div>

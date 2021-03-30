@@ -3,7 +3,7 @@ import React from 'react';
 function EditToDos() {
 
     return(
-        <div class="EditToDos">
+        <div className="EditToDos">
             User---------------Befülle er mich--------------User
             </div>
 

@@ -3,7 +3,7 @@ import React from 'react';
 function ToDo() {
 
     return(
-        <div class="ToDo">
+        <div className="ToDo">
             User---------------Befülle er mich--------------User
             </div>
 

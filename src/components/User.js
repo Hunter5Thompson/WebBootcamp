@@ -9,8 +9,8 @@ function User(){
                 <img src={logo} alt="logo" />
             </div>
             <div className='info'>
-                <p>Mariechens ToDo List</p>
-                // eslint-disable-next-line 
+                <p>Mariechen</p>
+                
                 <a href="#">Logout!</a>
             </div>
         </div>

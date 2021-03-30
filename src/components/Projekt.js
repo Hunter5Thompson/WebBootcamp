@@ -4,7 +4,7 @@ import RenameProjekt from './RenameProjekt';
 function Projekt() {
 
     return(
-        <div class="Projekt">
+        <div className="Projekt">
             <RenameProjekt />
             </div>
 
