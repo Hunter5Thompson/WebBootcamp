@@ -9,8 +9,8 @@ function Projects() {
     const pencilColor = edit ? "#1EC94C" : "#000000"
 
     const projects = [
-        {id : 1, name : 'privat', numOfTodos : 2},
-        {id : 2, name : 'privat', numOfTodos : 5},
+        {id : 1, name : "privat", numOfTodos : 2},
+        {id : 2, name : "privat", numOfTodos : 5},
         {id : 3, name : 'privat', numOfTodos : 1},
         {id : 7, name : 'arbeit', numOfTodos : 3},
         
@@ -28,7 +28,7 @@ function Projects() {
               <div className="btns">
                   {
                       showMenu && projects.length > 0 &&
-                          <span className='edit' onClick={ () => setEdit(edit = !edit)}>
+                          <span className='edit' onClick={ () => setEdit(edit => !edit)}>
                           <PencilFill size="16" color={pencilColor}/>
                       </span>
                   }
@@ -41,7 +41,7 @@ function Projects() {
             <div className="items">
                 {
                     projects.map(project =>
-                        <Projects 
+                        <Projekt 
                             project={project}
                             key={project.id}
                             edit={edit}
