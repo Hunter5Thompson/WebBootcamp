@@ -66,10 +66,10 @@ function AddNewToDo() {
                             <div className="project active">
                                 privat
                             </div>
-                            <div className="projects">
+                            <div className="project">
                                 arbeit
                             </div>
-                            <div className="projects">
+                            <div className="project">
                                 arbeit
                             </div>
                             </div>

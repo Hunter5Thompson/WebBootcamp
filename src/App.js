@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 import User from './components/User';
 import AddNewToDo from './components/AddNewToDo';
-import Calender from './components/Calender';
+import Calendar from './components/Calendar';
 import Projects from './components/Projects';
 import ToDos from './components/ToDos';
 import EditToDos from './components/EditToDos';
@@ -14,7 +14,7 @@ function App() {
       <Sidebar>
       <User />
       <AddNewToDo />
-      <Calender />
+      <Calendar />
       <Projects />
 
       </Sidebar>
