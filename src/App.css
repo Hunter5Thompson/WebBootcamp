@@ -112,7 +112,7 @@
     border-radius: 4px;
 }
 
-.AddNewToDo form.text input {
+.AddNewToDo form .text input {
     padding: 1rem;
     width: 100%;
     margin-bottom: 0.5rem;
@@ -133,7 +133,7 @@
   .AddNewToDo form p {
     margin-left: 10px;
   }
-  .AddNewTodo form .title {
+  .AddNewToDo form .title {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
@@ -163,19 +163,19 @@
     background: #b1c6db;
     color: white;
   }
-  .AddNewTodo form .cancel {
+  .AddNewToDo form .cancel {
     position: absolute;
     top: 0;
     right: 5px;
     cursor: pointer;
   }
-  .AddNewTodo form .confirm {
+  .AddNewToDo form .confirm {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
   }
-  .AddNewTodo form .confirm button {
+  .AddNewToDo form .confirm button {
     width: 100%;
     height: 40px;
     background: #b1c6db;

@@ -24,7 +24,7 @@ function AddNewToDo() {
                     <div className="text">
                         <h3>Neues ToDo!</h3>
                         <input 
-                            type="text"
+                            type='text'
                             value={text}
                             onChange={e => setText(e.target.value)}
                             placeholder='To do...'
@@ -62,11 +62,14 @@ function AddNewToDo() {
                             <Palette />
                             <p>Wähle ein Projekt aus</p>
                             </div>
-                        <div className="projecte">
+                        <div className="projects">
                             <div className="project active">
                                 privat
                             </div>
-                            <div className="projecte">
+                            <div className="projects">
+                                arbeit
+                            </div>
+                            <div className="projects">
                                 arbeit
                             </div>
                             </div>
