@@ -1,10 +1,10 @@
 import React from 'react';
 
-function ToDo() {
+function ToDo({todo}) {
 
     return(
         <div className="ToDo">
-            User---------------Befülle er mich--------------User
+            {todo.text}
             </div>
 
     )

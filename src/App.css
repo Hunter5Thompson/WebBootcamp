@@ -30,6 +30,7 @@
     background-image: url('./images/Dream.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 /*User*/
@@ -369,7 +370,7 @@
 }
 
 /* Todos */
-.Todos {
+.ToDos {
   width: 450px;
   height: 80%;
   background-color: white;
@@ -383,7 +384,7 @@
 
   padding: 0 0.5rem 0.5rem 0.5rem;
 }
-.Todos .selected-project {
+.ToDos .selected-project {
   margin: 1rem 0;
   text-transform: capitalize;
   font-size: 1.2rem;
@@ -391,6 +392,7 @@
   padding-bottom: 2px;
   border-bottom: 1px solid #eeeeee;
 }
-.Todos .todos {
+.ToDos .todos {
   overflow-y: auto;
 }
+

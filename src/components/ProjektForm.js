@@ -13,7 +13,7 @@ function ProjektForm({handleSubmit, heading, value, setValue, setShowModal, conf
                 autoFocus
 
             />
-            <button className="cancel" role='button' onClick={() => setShowModal(false)}>
+            <button className='cancel' role='button' onClick={() => setShowModal(false)}>
                 Abbruch
             </button>
             <button className="confirm"> 
