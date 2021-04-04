@@ -3,7 +3,7 @@ import React from 'react'
 function ProjektForm({handleSubmit, heading, value, setValue, setShowModal, confirmButtonText}){
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='ProjektForm'>
             <h3>{heading}</h3>
             <input
                 value={value}

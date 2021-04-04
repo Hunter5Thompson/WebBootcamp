@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
 import ProjektForm from './ProjektForm';
 
-function RenameProjekt({projekt, setShowModal}) {
-    const [newProjektName, setNewProjektName] = useState(projekt.name)
+function RenameProjekt({project, setShowModal}) {
+    const [newProjektName, setNewProjektName] = useState(project.name)
 
-    function handleSubmit(event) {
-        
+    function handleSubmit(e) {
+
     }
 
     return(
         <div className="RenameProjekt">
             <ProjektForm
                     handleSubmit={handleSubmit}
-                    heading='Neues Projekt!'
+                    heading='Projekt editieren!'
                     value={newProjektName}
                     setValue={setNewProjektName}
                     setShowModal={setShowModal}
-                    confirmButtonText= "+ Füge Projekt hinzu"
+                    confirmButtonText= "+ Bestätigen"
                 />
             </div>
 
