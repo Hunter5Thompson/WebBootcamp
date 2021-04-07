@@ -1,11 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { ArrowClockwise, CheckCircleFill,Circle, Trash } from 'react-bootstrap-icons';
 
 function ToDo({todo}) {
+    const [hover, setHover] = useState(false)
 
     return(
         <div className="ToDo">
-            {todo.text}
+            <div className="todo-container">
+                <div className="check-todo">
+                {
+                    todo.checked ?
+                    <span className="checked">
+                        <CheckCircleFill color='#8b0000'/>
+                    </span>
+                    :
+                    <span className="unchecked">
+                        <Circle color={todo.color}/>
+                    </span>
+                }
             </div>
+            <div className="text">
+                <p>{todo.text}</p>
+                <span>{todo.uhrzeit}-{todo.project}</span>
+                <div className={`line ${todo.checked ? 'line-through' : '' }`}></div>
+            </div>
+            <div className="add-top-next-day">
+                {
+
+                    todo.checked &&
+                    <span>
+                        <ArrowClockwise />
+                    </span>
+                }
+            </div>
+            <div className="delete-todo">
+                {
+                    todo.checked &&
+                    <span>
+                        <Trash />
+                    </span>
+                }
+            </div>
+        </div>
+        </div>
 
     )
 }
