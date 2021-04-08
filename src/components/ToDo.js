@@ -6,7 +6,11 @@ function ToDo({todo}) {
 
     return(
         <div className="ToDo">
-            <div className="todo-container">
+            <div
+             className="todo-container"
+             onMouseEnter={() => setHover(true)}
+             onMouseLeave={() => setHover(false)}   
+             > 
                 <div className="check-todo">
                 {
                     todo.checked ?
@@ -35,7 +39,7 @@ function ToDo({todo}) {
             </div>
             <div className="delete-todo">
                 {
-                    todo.checked &&
+                  (hover || todo.checked)   &&
                     <span>
                         <Trash />
                     </span>

@@ -6,7 +6,7 @@ import AddNewToDo from './components/AddNewToDo';
 import Calendar from './components/Calendar';
 import Projects from './components/Projects';
 import ToDos from './components/ToDos';
-import EditToDos from './components/EditToDos';
+import EditToDo from './components/EditToDo';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       </Sidebar>
       <Main>
         <ToDos />
-        <EditToDos />
+        <EditToDo />
 
         </Main>
     </div>
