@@ -12,7 +12,7 @@ function ToDoForm({
     time, setTime,
     projects, 
     showButtons = false,
-    setShowButtons = false
+    setShowModal = false
 }){ 
 
 
