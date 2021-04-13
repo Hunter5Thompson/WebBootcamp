@@ -9,12 +9,13 @@ function EditToDo() {
     const [text, setText] = useState();
     const[day, setDay] = useState();
     const[time, setTime] = useState();
+    const [toDoProject, setToDoProject] = useState();
 
     const projects = [
-        {id : 1, name : "privat", numOfTodos : 2},
-        {id : 2, name : "privat", numOfTodos : 5},
-        {id : 3, name : 'andere', numOfTodos : 1},
-        {id : 7, name : 'arbeit', numOfTodos : 3},
+       
+        {id : 2, name : "Privat", numOfTodos : 5},
+        {id : 3, name : 'Andere', numOfTodos : 1},
+        {id : 7, name : 'Arbeit', numOfTodos : 3},
         
     ]
 
@@ -34,6 +35,8 @@ function EditToDo() {
                     setText={setText}
                     day={day}
                     setDay={setDay}
+                    toDoProject={toDoProject}
+                    setToDoProject={setToDoProject}
                     time={time}
                     setTime={setTime}
                     projects={projects}

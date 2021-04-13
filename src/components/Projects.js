@@ -10,7 +10,7 @@ function Projects(){
     const pencilColor = edit ? "#1EC94C" : "#000000"
 
     const projects = [
-        {id : 1, name : "privat", numOfTodos : 2},
+        
         {id : 2, name : "privat", numOfTodos : 5},
         {id : 3, name : 'andere', numOfTodos : 1},
         {id : 7, name : 'arbeit', numOfTodos : 3},

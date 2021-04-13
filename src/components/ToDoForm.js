@@ -10,6 +10,7 @@ function ToDoForm({
     text, setText,
     day, setDay,
     time, setTime,
+    toDoProject, setToDoProject,
     projects, 
     showButtons = false,
     setShowModal = false
@@ -65,11 +66,20 @@ function ToDoForm({
                             </div>
                         <div className="projects">
                                 {
-                                    projects.map(projects =>
-                                        <div className="project" key={projects.id}>
-                                            {projects.name}
+                                    projects.length > 0 ?
+                                    projects.map(project =>
+                                        <div 
+                                        className={`project ${toDoProject === project.name ? "active" : ""}`}
+                                        onClick={() =>setToDoProject(project.name)}
+                                        key={project.id}
+                                        >
+                                            {project.name}
                                         </div>
                                         )
+                                        :
+                                        <div style={{color:'#ff0000'}}>
+                                            Bitte ein Projekt auswählen.
+                                        </div>
                                 }
                             </div>
                             </div>
