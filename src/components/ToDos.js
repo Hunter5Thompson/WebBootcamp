@@ -4,20 +4,7 @@ import ToDo from './ToDo';
 import {ToDoContext} from '../context';
 
 function ToDos() {
-    const {selectedProject} = useContext(ToDoContext)
-
-    const todos = [
-        {
-            id: '45ddss',
-            text: 'Listen to Motherfucking Techno',
-            uhrzeit: "12:15 AM",
-            date: '04/04/2021',
-            day: "5",
-            checked: true,
-            color: "#00ff00",
-            project: "arbeit"
-        }
-    ]
+    const {toDos, selectedProject} = useContext(ToDoContext)
 
     return(
         <div className="ToDos">
@@ -27,9 +14,9 @@ function ToDos() {
             <div className="todos">
                 {
                     selectedProject === "nächste 7 Tage" ?
-                    <Next7Days todos={todos} />
+                    <Next7Days toDos={toDos} />
                     :
-                    todos.map(todo =>
+                    toDos.map(todo =>
                         <ToDo todo={todo} key={todo.id} />
                         )
                 }

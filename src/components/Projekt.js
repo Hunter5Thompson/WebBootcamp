@@ -17,10 +17,10 @@ function Projekt({project, edit}) {
     return(
         <div className="Projekt">
             <div className="name"
-                onClick={() => setSelectedProject(Projekt.name)}
+                onClick={() => setSelectedProject(project.name)}
             
             >
-                {Projekt.name}
+                {project.name}
             </div>
             <div className="btns">
                 {
