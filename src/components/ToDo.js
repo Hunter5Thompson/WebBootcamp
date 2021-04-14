@@ -25,7 +25,7 @@ function ToDo({todo}) {
             </div>
             <div className="text">
                 <p>{todo.text}</p>
-                <span>{todo.uhrzeit}-{todo.projektName}</span>
+                <span>{todo.time}-{todo.projektName}</span>
                 <div className={`line ${todo.checked ? 'line-through' : '' }`}></div>
             </div>
             <div className="add-top-next-day">

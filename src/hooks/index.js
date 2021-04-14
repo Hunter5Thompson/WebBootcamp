@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import firebase from '../firebase';
 
 export function useToDos(){
-    const [todos, setToDos] = useState([])
+    const [toDos, setToDos] = useState([])
 
     useEffect(() => {
         let unsubscribe = firebase
@@ -21,7 +21,7 @@ export function useToDos(){
         return () => unsubscribe()
     }, [])
 
-    return todos
+    return toDos
 }
 
 export function useProjects(toDos){
