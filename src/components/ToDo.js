@@ -1,8 +1,19 @@
 import React, {useState} from 'react';
 import { ArrowClockwise, CheckCircleFill,Circle, Trash } from 'react-bootstrap-icons';
+import firebase from '../firebase';
+
+
 
 function ToDo({todo}) {
     const [hover, setHover] = useState(false)
+
+    const deleteToDo = todo => {
+        firebase
+            .firestore()
+            .collection('ToDos')
+            .doc(todo.id)
+            .delete()
+    }
 
     return(
         <div className="ToDo">
@@ -28,7 +39,7 @@ function ToDo({todo}) {
                 <span>{todo.time}-{todo.projektName}</span>
                 <div className={`line ${todo.checked ? 'line-through' : '' }`}></div>
             </div>
-            <div className="add-top-next-day">
+            <div className="add-to-next-day">
                 {
 
                     todo.checked &&
@@ -37,7 +48,9 @@ function ToDo({todo}) {
                     </span>
                 }
             </div>
-            <div className="delete-todo">
+            <div className="delete-todo"
+                onClick={() => deleteToDo(todo)}
+            >
                 {
                   (hover || todo.checked)   &&
                     <span>

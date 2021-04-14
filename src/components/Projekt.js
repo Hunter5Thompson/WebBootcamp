@@ -4,6 +4,7 @@ import RenameProjekt from './RenameProjekt';
 import {Pencil, XCircle} from 'react-bootstrap-icons';
 import Modal from './Modal';
 import {ToDoContext} from '../context';
+import firebase from '../firebase';
 
 function Projekt({project, edit}) {
 
@@ -13,6 +14,14 @@ function Projekt({project, edit}) {
 
     // Status oder STATE
     const[showModal, setShowModal] = useState(false)
+    const deleteProject = project => {
+        firebase
+            .firestore()
+            .collection('Projekte')
+            .doc(project.id)
+            .delete()
+
+    }
 
     return(
         <div className="Projekt">
@@ -32,7 +41,10 @@ function Projekt({project, edit}) {
                                         >
                                       <Pencil size="15" />
                                   </span>
-                                  <span className="delete">
+                                  <span 
+                                        className="delete"
+                                        onClick={() =>deleteProject(project)}
+                                        >
                                       <XCircle size="15" />
                                   </span>
                               </div>

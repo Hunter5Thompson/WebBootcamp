@@ -24,7 +24,7 @@ export function useToDos(){
 
     return toDos
 }
-
+// filter hook sorgt dafür das die einzelnen ToDos auch nur in ihren Kategorien angezeigt werden
 export function useFilterToDos(toDos, selectedProject){
     const [filteredToDos, setFilteredToDos] = useState([])
 
@@ -41,7 +41,7 @@ export function useFilterToDos(toDos, selectedProject){
                 const differenceDays = toDoDate.diff(todayDate, 'days')
                 return differenceDays >=0 && differenceDays < 7
             })
-        }else if (selectedProject === 'Alle Tage'){
+        }else if (selectedProject === 'alle Tage'){
             data = toDos
         }else {
             data = toDos.filter(todo => todo.projektName === selectedProject)
@@ -54,7 +54,7 @@ export function useFilterToDos(toDos, selectedProject){
 
     return filteredToDos
 }
-
+//berechne die Anzahl der ToDOs für die jeweiligen Projekte
 export function useProjects(toDos){
     const [projects, setProjects] = useState([])
 
@@ -80,8 +80,8 @@ export function useProjects(toDos){
             setProjects(data)
         })
 
-        return() => unsubscribe()
-    }, [])
+        return () => unsubscribe()
+    }, [ toDos])
 
     return projects
 }
