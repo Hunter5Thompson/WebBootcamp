@@ -2,12 +2,35 @@ import React, {useState} from 'react';
 import {Plus} from 'react-bootstrap-icons';
 import Modal from './Modal';
 import ProjektForm from './ProjektForm';
+import firebase from '../firebase';
 
 function AddNewProject() {
     const [showModal,setShowModal] = useState(false);
-    const [projektName, setProjektName] = useState('')
+    const [projectName, setProjektName] = useState('')
     function handleSubmit(e){
+        e.preventDefault();
 
+        if(projectName){
+            const projectsRef = firebase.firestore().collection('Projekte')
+
+            projectsRef
+                .where('name', '==', projectName)
+                .get()
+                .then(querySnapshot => {
+                    if(querySnapshot.empty){
+                        projectsRef
+                        .add(
+                            {
+                                name : projectName
+                            }
+                        )
+                    }else{
+                        alert('Das Projekt existiert schon!')
+                    }
+                })
+            setShowModal(false)
+            setProjektName('')
+        }
     }
 
     return(
@@ -21,7 +44,7 @@ function AddNewProject() {
                 <ProjektForm 
                     handleSubmit={handleSubmit}
                     heading='Neues Projekt!'
-                    value={projektName}
+                    value={projectName}
                     setValue={setProjektName}
                     setShowModal={setShowModal}
                     confirmButtonText= "+ Füge Projekt hinzu"

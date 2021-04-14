@@ -19,7 +19,7 @@ export function useToDos(){
         })
 
         return () => unsubscribe()
-    })
+    }, [])
 
     return todos
 }
@@ -50,7 +50,7 @@ export function useProjects(toDos){
         })
 
         return() => unsubscribe()
-    })
+    }, [])
 
     return projects
 }
