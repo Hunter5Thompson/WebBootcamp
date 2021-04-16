@@ -22,3 +22,4 @@ function Modal({children, showModal, setShowModal}){
 }
 
 export default Modal
+
