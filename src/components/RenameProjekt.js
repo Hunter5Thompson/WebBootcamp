@@ -4,18 +4,18 @@ import firebase from 'firebase';
 import {ToDoContext} from '../context'
 
 function RenameProjekt({project, setShowModal}) {
-    const [newProjektName, setNewProjektName] = useState(project.name)
+    const [newProjectName, setNewProjectName] = useState(project.name)
 
     const { selectedProject, setSelectedProject } = useContext(ToDoContext)
 
-    const renameProjekt = (project, newProjektName) => {
+    const renameProject = (project, newProjectName) => {
         const projectsRef = firebase.firestore().collection('Projekte')
         const toDosRef = firebase.firestore().collection('ToDos')
 
-        const {name: oldProjektName} = project
+        const {name: oldProjectName} = project
 
         projectsRef
-        .where('name', '==', newProjektName)
+        .where('name', '==', newProjectName)
         .get()
         .then(querySnapshot => {
             if(!querySnapshot.empty){
@@ -24,22 +24,22 @@ function RenameProjekt({project, setShowModal}) {
                 projectsRef
                     .doc(project.id)
                     .update({
-                        name : newProjektName
+                        name : newProjectName
                     })
                     .then( () => {
                         toDosRef
-                            .where('projectName', '==', oldProjektName)
+                            .where('projektName', '==', oldProjectName)
                             .get()
                             .then( querySnapshot => {
                                 querySnapshot.forEach( doc => {
                                     doc.ref.update({
-                                        projectName : newProjektName
+                                        projektName : newProjectName
                                     })
                                 })
                             })
                             .then( () => {
-                                if(selectedProject === oldProjektName){
-                                    setSelectedProject(newProjektName)
+                                if(selectedProject === oldProjectName){
+                                    setSelectedProject(newProjectName)
                                 }
                             })
                     })
@@ -50,9 +50,9 @@ function RenameProjekt({project, setShowModal}) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        renameProjekt(project, newProjektName);
-        console.log(setShowModal);
-        setShowModal(false);
+        renameProject(project, newProjectName);
+       
+        
     }
 
     return(
@@ -61,14 +61,17 @@ function RenameProjekt({project, setShowModal}) {
             <ProjektForm
                     handleSubmit={handleSubmit}
                     heading='Projekt editieren!'
-                    value={newProjektName}
-                    setValue={setNewProjektName}
+                    value={newProjectName}
+                    setValue={setNewProjectName}
                     setShowModal={setShowModal}
                     confirmButtonText= "+ Bestätigen"
-                />
+                    
+                /> 
             </div>
+           
 
     )
+    
 }
 
 

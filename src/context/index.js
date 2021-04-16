@@ -16,6 +16,7 @@ function ToDoContextProvider({children}) {
         <ToDoContext.Provider
             value={
                 {
+                    defaultProject,
                     selectedProject,
                     setSelectedProject,
                     toDos : filteredToDos,
