@@ -54,13 +54,17 @@ export function useFilterToDos(toDos, selectedProject){
 
     return filteredToDos
 }
-//berechne die Anzahl der ToDOs für die jeweiligen Projekte
-export function useProjects(toDos){
+/*
+-->Berechne die Anzahl der ToDOs für die jeweiligen Projekte
+-->Update da die Abfrage keinen gültigen Wert bekommt nachdem man Projekte 
+-->unchecked werden Parameter entfernt und in die neue Methode useProjectsWithStats
+-->ausgelagert.
+ */
+
+export function useProjects(){
     const [projects, setProjects] = useState([])
 
-    function calculateNumOfToDos(projektName, toDos){
-        return toDos.filter(toDos => toDos.projektName === projektName).length
-    }
+
 
     useEffect(() =>{
         let unsubscribe = firebase
@@ -69,11 +73,11 @@ export function useProjects(toDos){
         .onSnapshot(snapshot => {
             const data = snapshot.docs.map ( doc =>{
 
-                const projektName = doc.data().name
+                
                 return {
                     id : doc.id,
-                    name : projektName,
-                    numOfTodos : calculateNumOfToDos(projektName, toDos)
+                    name : doc.data().name
+                    
                     
                 }
             })
@@ -81,7 +85,37 @@ export function useProjects(toDos){
         })
 
         return () => unsubscribe()
-    }, [ toDos])
+    }, [ ])
 
     return projects
 }
+
+
+
+/* 
+
+ALTBESTAND
+
+    function calculateNumOfToDos(projektName, toDos){
+        return toDos.filter(toDos => toDos.projektName === projektName).length
+    }
+
+    numOfTodos : calculateNumOfToDos(projektName, toDos)
+*/
+
+export function useProjectsWithStats(Projekte, ToDos){
+    const [projectsWithStats, setProjectsWithStats] = useState([])
+
+    useEffect(() => {
+        const data = Projekte.map((project) =>{
+            return {
+                numOfTodos : ToDos.filter(todo => todo.projektName === project.name && !todo.checked).length,
+                ...project
+            }
+        })
+
+        setProjectsWithStats(data)
+    }, [Projekte, ToDos])
+
+    return projectsWithStats
+} 

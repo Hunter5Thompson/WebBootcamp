@@ -8,9 +8,10 @@ import firebase from '../firebase';
 
 function Projekt({project, edit}) {
 
+    const{defaultProject, selectedProject, setSelectedProject} = useContext(ToDoContext)
 
     // Inhalt oder CONTEXT
-    const {defaultProject, selectedProject, setSelectedProject} = useContext(ToDoContext)
+    
 
 
     // Status oder STATE

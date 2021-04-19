@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import {useToDos, useProjects, useFilterToDos} from '../hooks';
+import {useToDos, useProjects, useFilterToDos, useProjectsWithStats} from '../hooks';
 
 const ToDoContext = createContext()
 
@@ -10,7 +10,8 @@ function ToDoContextProvider({children}) {
     
 
     const toDos = useToDos()
-    const projects = useProjects(toDos)
+    const projects = useProjects()
+    const projectsWithStats = useProjectsWithStats(projects, toDos)
     const filteredToDos = useFilterToDos(toDos, selectedProject)
     return (
         <ToDoContext.Provider
@@ -20,7 +21,7 @@ function ToDoContextProvider({children}) {
                     selectedProject,
                     setSelectedProject,
                     toDos : filteredToDos,
-                    projects
+                    projects : projectsWithStats
                 
                 }
             }
@@ -33,3 +34,5 @@ function ToDoContextProvider({children}) {
 }
 
 export { ToDoContextProvider, ToDoContext} 
+
+

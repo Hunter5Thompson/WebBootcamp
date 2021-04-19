@@ -15,6 +15,17 @@ function ToDo({todo}) {
             .delete()
     }
 
+    const checkToDo = todo => {
+        firebase
+        .firestore()
+        .collection('ToDos')
+        .doc(todo.id)
+        .update({
+            checked : !todo.checked
+        })
+
+    } 
+
     return(
         <div className="ToDo">
             <div
@@ -22,7 +33,9 @@ function ToDo({todo}) {
              onMouseEnter={() => setHover(true)}
              onMouseLeave={() => setHover(false)}   
              > 
-                <div className="check-todo">
+                <div className="check-todo"
+                onClick={() => checkToDo(todo)}
+                >
                 {
                     todo.checked ?
                     <span className="checked">
