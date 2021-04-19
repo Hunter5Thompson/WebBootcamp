@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { ArrowClockwise, CheckCircleFill,Circle, Trash } from 'react-bootstrap-icons';
 import firebase from '../firebase';
+import moment from 'moment';
 
 
 
@@ -25,6 +26,31 @@ function ToDo({todo}) {
         })
 
     } 
+//object welches den Inhalt erzeugt das toDO am Nächsten TAg zu wiederholen. 
+//Moment Nutzung als JS date Obejct
+//RepeatedToDo Obeject enthält alle information des alten ToDO
+//checke wird wieder auf unchecked getoggelt sowie die Datensänderung (deshalb JS dateObj)
+//day wird ebenfalls erhöht
+    const repeatNextDay = toDo => {
+        const nextDayDate = moment(todo.date, "DD/MM/YYYY").add(1, 'days')
+
+        const repeatedToDo = {
+            ...todo,
+            checked : false,
+            date : nextDayDate.format('DD/MM/YYYY'),
+            day : nextDayDate.format('d')
+        }
+
+        delete repeatedToDo.id
+
+        firebase
+        .firestore()
+        .collection('ToDos')
+        //.doc(todo.id)
+        .add(repeatedToDo)
+
+
+    }
 
     return(
         <div className="ToDo">
@@ -52,7 +78,9 @@ function ToDo({todo}) {
                 <span>{todo.time}-{todo.projektName}</span>
                 <div className={`line ${todo.checked ? 'line-through' : '' }`}></div>
             </div>
-            <div className="add-to-next-day">
+            <div className="add-to-next-day"
+                    onClick={ () =>repeatNextDay(todo)}
+                >
                 {
 
                     todo.checked &&
