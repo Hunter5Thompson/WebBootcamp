@@ -1,8 +1,10 @@
 /* eslint-disable no-undef */
 
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import ToDoForm from './ToDoForm';
 import {ToDoContext} from '../context';
+import moment from 'moment';
+
 
 function EditToDo() {
 
@@ -14,6 +16,16 @@ function EditToDo() {
 
 
     const {selectedToDo, projects} = useContext(ToDoContext)
+
+
+    useEffect(() => {
+        if(selectedToDo){
+            setText(selectedToDo.text)
+            setDay(moment(selectedToDo.date, 'DD/MM/YYYY'))
+            setTime(moment(selectedToDo.time, 'HH:mm'))
+            setToDoProject(selectedToDo.projectName)
+        }
+    }, [selectedToDo])
   
 
     function handleSubmit() {
