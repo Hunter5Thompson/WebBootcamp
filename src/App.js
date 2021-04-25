@@ -25,7 +25,15 @@ function App() {
         </Main>
     </div>
    
+
+
   );
 }
+
+let port = process.env.PORT;
+ if (port == null || port === "") { 
+   port = 8000;
+  }
+  App.listen(port)
 
 export default App;
