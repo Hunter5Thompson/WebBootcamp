@@ -43,7 +43,7 @@ function EditToDo() {
                 projectName : selectedToDo
             })
         }
-    }, [text, day, time, toDoProject, selectedToDo])
+    }, [text, day, time, selectedToDo])
 
 
     function handleSubmit() {
