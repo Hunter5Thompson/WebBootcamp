@@ -10,7 +10,7 @@ import firebase from '../firebase';
 function EditToDo() {
 
     
-    const [text, setText] = useState();
+    const [text, setText] = useState('');
     const[day, setDay] = useState();
     const[time, setTime] = useState();
     const [toDoProject, setToDoProject] = useState();
@@ -36,7 +36,7 @@ function EditToDo() {
             .collection('ToDos')
             .doc(selectedToDo.id)
             .update({
-                text,
+                text ,
                 date : moment(day).format('DD/MM/YYYY'),
                 day : moment(day).format('d'),
                 time : moment(time).format('hh:mm A'),
