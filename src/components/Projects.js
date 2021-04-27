@@ -4,7 +4,7 @@ import { CaretUp, Palette, PencilFill } from 'react-bootstrap-icons'
 import AddNewProject from './AddNewProject'
 import Projekt from './Projekt'
 import { ToDoContext} from '../context'
-import {useSpring, animated} from 'react-spring'
+import {useSpring,useTransition,  animated} from 'react-spring'
 
 function Projects(){
     const [showMenu, setShowMenu] = useState(true);
@@ -22,6 +22,8 @@ function Projects(){
         display : showMenu ? 'block' : 'none',
         lineHeight : showMenu ? '1.4' : '0'
     })
+
+
 
     return (
         <div className='Projects'>
