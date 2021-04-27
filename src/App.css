@@ -405,6 +405,15 @@
   display : flex;
   align-items: center;
 }
+
+.ToDo .todo-container .check-todo {
+  display : flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 20px;
+}
+
 .ToDo .todo-container span {
   cursor: pointer;
 }

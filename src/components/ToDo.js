@@ -3,6 +3,7 @@ import { ArrowClockwise, CheckCircleFill,Circle, Trash } from 'react-bootstrap-i
 import firebase from '../firebase';
 import moment from 'moment';
 import {ToDoContext} from '../context'
+import {useSpring,useTransition, animated} from 'react-spring'
 
 
 function ToDo({todo}) {
@@ -14,9 +15,23 @@ function ToDo({todo}) {
         deleteToDo(todo)
 
         if(selectedToDo === todo) {
-            setSelectedToDo(undefined)
+            setSelectedToDo(false)
         }
     }
+
+
+    //animations baby
+    const fadeIn = useSpring({
+        from : {mirginTop : '50px', opacity : 0},
+        to : { mirginTop : '0', opacity : 1},
+    })
+
+    const checkTransition = useTransition(todo.checked, {
+        from : {position : 'absolute', transform : 'scale(0)'},
+        enter : {transform : 'scale(1)'},
+        leave : {transform : 'scale(0)'}
+    }
+        )
 
     const deleteToDo = todo => {
         firebase
@@ -63,7 +78,7 @@ function ToDo({todo}) {
     }
 
     return(
-        <div className="ToDo">
+        <animated.div style ={fadeIn} className="ToDo">
             <div
              className="todo-container"
              onMouseEnter={() => setHover(true)}
@@ -73,14 +88,16 @@ function ToDo({todo}) {
                 onClick={() => checkToDo(todo)}
                 >
                 {
-                    todo.checked ?
-                    <span className="checked">
+                    checkTransition((props, checked) =>
+                    checked ?
+                    <animated.span sytle={props} className="checked">
                         <CheckCircleFill color='#8b0000'/>
-                    </span>
+                    </animated.span >
                     :
-                    <span className="unchecked">
+                    <animated.span sytle={props} className="unchecked">
                         <Circle color={todo.color}/>
-                    </span>
+                    </animated.span >
+                    )
                 }
             </div>
             <div
@@ -113,7 +130,7 @@ function ToDo({todo}) {
                 }
             </div>
         </div>
-        </div>
+        </animated.div>
 
     )
 }
