@@ -13,7 +13,7 @@ function EditToDo() {
     const [text, setText] = useState('');
     const[day, setDay] = useState();
     const[time, setTime] = useState();
-    const [toDoProject, setToDoProject] = useState();
+    const [toDoProject, setToDoProject] = useState('');
 
 
     const {selectedToDo, projects} = useContext(ToDoContext)
